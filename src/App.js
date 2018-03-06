@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 
+//initial state 
+const initialColor = 0;
+
+//reducer > how state changes 
+
+
+//creation of the store 
+
 class App extends Component {
   render() {
     return (
