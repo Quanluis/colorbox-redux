@@ -12,7 +12,7 @@ class App extends Component {
           Color Box
         </h1>
         <div style = {{backgroundColor: this.props.color}}className = 'box'></div>
-        <input onClick = {(e) => this.props.changeColor(e.target.value)} value = {this.props.color} className = 'picker' type="color" id = "colorPicker"/>
+        <input onChange = {(e) => this.props.changeColor(e.target.value)} value = {this.props.color} className = 'picker' type="color" id = "colorPicker"/>
        
       </div>
     );
