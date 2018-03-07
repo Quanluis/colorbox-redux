@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
+import { connect } from "react-redux";
+import {changeColor} from './store'
 
-//initial state 
-const initialColor = 0;
-
-//reducer > how state changes 
-
-
-//creation of the store 
 
 class App extends Component {
   render() {
@@ -16,11 +11,22 @@ class App extends Component {
         <h1>
           Color Box
         </h1>
-        <div class = 'box'></div>
-        <input class = 'picker' type="color"/>
+        <div style = {{backgroundColor: this.props.color}}className = 'box'></div>
+        <input className = 'picker' type="color" id = "colorPicker"/>
       </div>
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    color: state.color
+  }
+}
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    changeColor: color => dispatch(changeColor(color))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
