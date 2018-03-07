@@ -14,7 +14,7 @@ export const changeColor = (color) => ({
 
 //initialstate 
 const initialColor = {
-    color: 'red'
+    color: 'white'
 }
 
 //reducer

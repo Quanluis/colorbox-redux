@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from "react-redux";
-import {changeColor} from './store'
+import {changeColor, handleOnClick} from './store'
 
 
 class App extends Component {
@@ -12,7 +12,8 @@ class App extends Component {
           Color Box
         </h1>
         <div style = {{backgroundColor: this.props.color}}className = 'box'></div>
-        <input className = 'picker' type="color" id = "colorPicker"/>
+        <input onClick = {(e) => this.props.changeColor(e.target.value)} value = {this.props.color} className = 'picker' type="color" id = "colorPicker"/>
+       
       </div>
     );
   }
@@ -26,7 +27,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     changeColor: color => dispatch(changeColor(color))
+    
   }
 }
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
